@@ -1,12 +1,12 @@
 ---
-import Favicon from "../assets/favicon.ico";
-const { title = "Biginner", description, ...props } = Astro.props;
+import favicon from "../assets/favicon.ico";
+const { title, description } = Astro.props;
 ---
 
 <meta name="viewport" content="width=device-width" />
-<link rel="icon" type="image/svg+xml" href="./assets/favicon.ico" />
+<link rel="icon" type="image/svg+xml" href={favicon} />
 <meta name="generator" content={Astro.generator} />
-<link rel="sitemap" href="/sitemap-index.xml" />º
+<link rel="sitemap" href="/sitemap-index.xml" />
 <title>{`${title} - ${description}`}</title>
 <meta name="description" content={description} />
 
@@ -14,12 +14,11 @@ const { title = "Biginner", description, ...props } = Astro.props;
   data-goatcounter="https://my-account.goatcounter.com/count"
   async
   src="//gc.zgo.at/count.js"></script>
-
 <meta property="og:title" content={title} />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://www.biginner.es/" />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={Favicon} />
+<meta property="og:image" content={favicon} />
 <meta property="og:image:alt" content="" />
 <meta
   name="Keywords"

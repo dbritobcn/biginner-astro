@@ -1,0 +1,32 @@
+---
+import logo from "../assets/logo.gif";
+---
+
+<div
+  class="header container mx-auto flex items-center justify-between relative
+    before:absolute before:content-[''] before:-z-10 before:w-full before:block before:bg-black before:bottom-0 before:h-0.5
+    md:before:bottom-1 md:before:h-1"
+>
+  <a href="/" class="w-40 md:w-72">
+    <img src={logo.src} class="logo object-fill" alt="Biginner" />
+  </a>
+  <div class="hidden md:block">
+    <nav>
+      <ul class="flex mt-10 mr-3">
+        <li>
+          <a class="ml-5 uppercase" href="/">Noticias</a>
+        </li>
+        <li>
+          <a class="ml-5 uppercase" href="/">Discos</a>
+        </li>
+        <li>
+          <a class="ml-5 uppercase" href="/">Conciertos</a>
+        </li>
+        <li>
+          <a class="ml-5 uppercase" href="/">Entrevistas</a>
+        </li>
+        <li><a class="ml-5 uppercase" href="/">Tv</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>

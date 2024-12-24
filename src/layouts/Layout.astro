@@ -1,16 +1,20 @@
 ---
 import Head from "../components/Head.astro";
-const { ...props } = Astro.props;
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <Head title="BIGinner" description="Revista de música independiente" />
+    <Head title="Biginner" description="Revista de música independiente" />
   </head>
+
   <body>
+    <Header />
     <slot />
+    <Footer />
   </body>
 </html>
 
