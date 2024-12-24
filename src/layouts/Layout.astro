@@ -1,0 +1,24 @@
+---
+import Head from "../components/Head.astro";
+const { ...props } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <Head title="BIGinner" description="Revista de música independiente" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style>
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>
