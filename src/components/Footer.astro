@@ -1,12 +1,62 @@
-<div
-  class="hidden md:block container mx-auto text-center border-t-4 border-black"
->
+---
+import concertsIcon from "../assets/tabs/concert.png";
+import albumsIcon from "../assets/tabs/disc.png";
+import newsIcon from "../assets/tabs/news.png";
+import tvIcon from "../assets/tabs/video.png";
+import interviewsIcon from "../assets/tabs/mic.png";
+---
+
+<div class="container mx-auto text-center border-t-4 border-black">
   <ul class="flex mx-auto pt-3 pb-8 justify-center">
-    <li><a href="/" class="m-3">Conciertos</a>|</li>
-    <li><a href="/" class="m-3">Discos</a>|</li>
-    <li><a href="/" class="m-3">Noticias</a>|</li>
-    <li><a href="/" class="m-3">Entrevistas</a>|</li>
-    <li><a href="/" class="m-3">Agenda</a>|</li>
-    <li><a href="/" class="m-3">BiginnerTV</a></li>
+    <li>
+      <a href="/">
+        <span class="hidden md:block m-3">Conciertos</span>
+        <img
+          class="size-6 block mx-4 md:hidden"
+          src={concertsIcon.src}
+          alt="Conciertos"
+        />
+      </a>
+    </li>
+    <li>
+      <a href="/">
+        <span class="hidden md:block m-3">Discos</span>
+        <img
+          class="size-6 block mx-4 md:hidden"
+          src={albumsIcon.src}
+          alt="Discos"
+        />
+      </a>
+    </li>
+    <li>
+      <a href="/">
+        <span class="hidden md:block m-3">Noticias</span>
+        <img
+          class="size-6 block mx-4 md:hidden"
+          src={newsIcon.src}
+          alt="Noticias"
+        />
+      </a>
+    </li>
+    <li>
+      <a href="/">
+        <span class="hidden md:block m-3">Entrevistas</span>
+        <img
+          class="size-6 block mx-4 md:hidden"
+          src={interviewsIcon.src}
+          alt="Entrevistas"
+        />
+      </a>
+    </li>
+    <li>
+      <a href="/">
+        <span class="hidden md:block m-3">BiginnerTV</span>
+        <img
+          class="size-6 block mx-4 md:hidden"
+          src={tvIcon.src}
+          alt="BiginnerTV"
+        />
+      </a>
+    </li>
   </ul>
 </div>
