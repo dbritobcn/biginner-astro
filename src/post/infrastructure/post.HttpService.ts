@@ -1,14 +1,9 @@
 import { HttpService } from "src/core/infrastructure/httpService";
+import type { PostService } from "./post.service";
+import type { GetPostsProps } from "../types";
 
-interface GetPostsProps {
-  category: string;
-  page: string;
-  url: string;
-  limit: string;
-}
-
-export class PostService {
-  static async getPostsByCategory<T>(props: GetPostsProps): Promise<T> {
+export class PostHttpService implements PostService {
+  async getPostsByCategory<T>(props: GetPostsProps): Promise<T> {
     const url = new URL(props.url);
 
     const queryParams = new URLSearchParams({
@@ -23,7 +18,7 @@ export class PostService {
     return HttpService.get<T>(url.href);
   }
 
-  static async getPostBySlug<T>(slug: string, baseUrl: string): Promise<T> {
+  async getPostBySlug<T>(slug: string, baseUrl: string): Promise<T> {
     const url = new URL(baseUrl);
 
     const queryParams = new URLSearchParams({

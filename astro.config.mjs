@@ -10,10 +10,6 @@ export default defineConfig({
   site: "https://www.biginner.com",
   base: "/",
   trailingSlash: "ignore",
-  integrations: [
-    tailwind({
-      // nesting: true,
-    }),
-    svelte(),
-  ],
+  integrations: [tailwind(), svelte()],
+  prefetch: true,
 });

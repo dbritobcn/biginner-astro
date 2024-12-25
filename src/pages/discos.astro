@@ -1,111 +1,36 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Box from "@components/Box.astro";
-import albumCover from "@images/Beach-House-Bloom.jpg";
+import { getAlbums } from "src/album/useCase/getAlbums";
+import type { Album } from "src/album/domain/album";
+import { formatDate } from "src/utils/formatDate";
+
+const albumList: Album[] = await getAlbums({ page: 1, limit: 20 });
 ---
 
 <Layout>
   <div class="container mx-auto">
     <Box title="Discos">
       <ul class="grid grid-cols-1 md:grid-cols-2 gap-2">
-        <li class="flex">
-          <img
-            class="h-full w-1/3 md:size-16 lg:size-24 mr-2"
-            src={albumCover.src}
-            alt="Beach house - Bloom"
-          />
-          <div class="text-sm">
-            <p>
-              <span class="font-bold">Beach House</span> - Bloom
-            </p>
-            <p class="text-gray-400">CPB 22/06/2012</p>
-          </div>
-        </li>
-
-        <li class="flex">
-          <img
-            class="h-full w-1/3 md:size-16 lg:size-24 mr-2"
-            src={albumCover.src}
-            alt="Beach house - Bloom"
-          />
-          <div class="albumListItem_detailsContainer__ZX_N_">
-            <p class="albumListItem_albumInfo__pICBM">
-              <span class="albumListItem_artist__ntIif">Beach House</span> - Bloom
-            </p><p class="albumListItem_author__Wtq2o">CPB 22/06/2012</p>
-          </div>
-        </li>
-        <li class="flex">
-          <img
-            class="h-full w-1/3 md:size-16 lg:size-24 mr-2"
-            src={albumCover.src}
-            alt="Beach house - Bloom"
-          />
-          <div class="albumListItem_detailsContainer__ZX_N_">
-            <p class="albumListItem_albumInfo__pICBM">
-              <span class="albumListItem_artist__ntIif">Beach House</span> - Bloom
-            </p><p class="albumListItem_author__Wtq2o">CPB 22/06/2012</p>
-          </div>
-        </li>
-        <li class="flex">
-          <img
-            class="h-full w-1/3 md:size-16 lg:size-24 mr-2"
-            src={albumCover.src}
-            alt="Beach house - Bloom"
-          />
-          <div class="albumListItem_detailsContainer__ZX_N_">
-            <p class="albumListItem_albumInfo__pICBM">
-              <span class="albumListItem_artist__ntIif">Beach House</span> - Bloom
-            </p><p class="albumListItem_author__Wtq2o">CPB 22/06/2012</p>
-          </div>
-        </li>
-        <li class="flex">
-          <img
-            class="h-full w-1/3 md:size-16 lg:size-24 mr-2"
-            src={albumCover.src}
-            alt="Beach house - Bloom"
-          />
-          <div class="albumListItem_detailsContainer__ZX_N_">
-            <p class="albumListItem_albumInfo__pICBM">
-              <span class="albumListItem_artist__ntIif">Beach House</span> - Bloom
-            </p><p class="albumListItem_author__Wtq2o">CPB 22/06/2012</p>
-          </div>
-        </li>
-        <li class="flex">
-          <img
-            class="h-full w-1/3 md:size-16 lg:size-24 mr-2"
-            src={albumCover.src}
-            alt="Beach house - Bloom"
-          />
-          <div class="albumListItem_detailsContainer__ZX_N_">
-            <p class="albumListItem_albumInfo__pICBM">
-              <span class="albumListItem_artist__ntIif">Beach House</span> - Bloom
-            </p><p class="albumListItem_author__Wtq2o">CPB 22/06/2012</p>
-          </div>
-        </li>
-        <li class="flex">
-          <img
-            class="h-full w-1/3 md:size-16 lg:size-24 mr-2"
-            src={albumCover.src}
-            alt="Beach house - Bloom"
-          />
-          <div class="albumListItem_detailsContainer__ZX_N_">
-            <p class="albumListItem_albumInfo__pICBM">
-              <span class="albumListItem_artist__ntIif">Beach House</span> - Bloom
-            </p><p class="albumListItem_author__Wtq2o">CPB 22/06/2012</p>
-          </div>
-        </li>
-        <li class="flex">
-          <img
-            class="h-full w-1/3 md:size-16 lg:size-24 mr-2"
-            src={albumCover.src}
-            alt="Beach house - Bloom"
-          />
-          <div class="albumListItem_detailsContainer__ZX_N_">
-            <p class="albumListItem_albumInfo__pICBM">
-              <span class="albumListItem_artist__ntIif">Beach House</span> - Bloom
-            </p><p class="albumListItem_author__Wtq2o">CPB 22/06/2012</p>
-          </div>
-        </li>
+        {
+          albumList.map((album: Album) => (
+            <li class="flex">
+              <img
+                class="h-full w-1/3 md:size-16 lg:size-24 mr-2"
+                src={album.featuredMedia.sizes.thumbnail?.url || ""}
+                alt={album.featuredMedia.altText}
+              />
+              <div class="text-sm">
+                <p>
+                  <span class="font-bold">{album.artist}</span> - {album.title}
+                </p>
+                <p class="text-gray-400">
+                  {album.author} {formatDate(album.date)}
+                </p>
+              </div>
+            </li>
+          ))
+        }
       </ul>
     </Box>
   </div>
