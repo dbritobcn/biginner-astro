@@ -9,7 +9,7 @@ import svelte from "@astrojs/svelte";
 export default defineConfig({
   site: "https://www.biginner.com",
   base: "/",
-  trailingSlash: "always",
+  trailingSlash: "ignore",
   integrations: [
     tailwind({
       // nesting: true,

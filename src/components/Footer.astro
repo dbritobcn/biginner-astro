@@ -1,13 +1,13 @@
 ---
-import concertsIcon from "../assets/tabs/concert.png";
-import albumsIcon from "../assets/tabs/disc.png";
-import newsIcon from "../assets/tabs/news.png";
-import tvIcon from "../assets/tabs/video.png";
-import interviewsIcon from "../assets/tabs/mic.png";
+import concertsIcon from "@assets/images/tabs/concert.png";
+import albumsIcon from "@assets/images/tabs/disc.png";
+import newsIcon from "@assets/images/tabs/news.png";
+import tvIcon from "@assets/images/tabs/video.png";
+import interviewsIcon from "@assets/images/tabs/mic.png";
 ---
 
 <div class="container mx-auto text-center border-t-4 border-black">
-  <ul class="flex mx-auto pt-3 pb-8 justify-center">
+  <ul class="flex mx-auto pt-3 pb-8 justify-around md:justify-center">
     <li>
       <a href="/">
         <span class="hidden md:block m-3">Conciertos</span>
@@ -19,7 +19,7 @@ import interviewsIcon from "../assets/tabs/mic.png";
       </a>
     </li>
     <li>
-      <a href="/">
+      <a href="/discos">
         <span class="hidden md:block m-3">Discos</span>
         <img
           class="size-6 block mx-4 md:hidden"
