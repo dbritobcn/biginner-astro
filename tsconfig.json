@@ -10,6 +10,7 @@
       "@fonts/*": ["src/assets/fonts/*"],
       "@images/*": ["src/assets/images/*"],
       "@assets/*": ["src/assets/*"],
+      "@mocks/*": ["src/mocks/*"],
     }
   }
 }
