@@ -7,5 +7,4 @@ export interface GetAlbumsProps {
 
 export abstract class AlbumService {
   abstract getAlbums(props: GetAlbumsProps): Promise<AlbumResponse[]>;
-  abstract getAlbumBySlug(slug: string): Promise<AlbumResponse | null>;
 }

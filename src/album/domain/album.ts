@@ -61,8 +61,4 @@ export class Album extends Post {
       props.acf.artista,
     );
   }
-
-  getScoreImage(): string {
-    return `/images/score/score${this.score.toString().replace(/\./g, "")}.gif`;
-  }
 }

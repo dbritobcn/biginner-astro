@@ -1,0 +1,86 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Box from "@components/Box.astro";
+import type { Album } from "src/album/domain/album";
+import { formatDate } from "src/utils/formatDate";
+import {
+  getAlbumStaticPaths,
+  type GetStaticPathsResult,
+} from "src/album/useCase/getAlbumStaticPaths";
+import { getScoreImageFilename } from "src/utils/getScoreImage";
+
+export async function getStaticPaths() {
+  const response: GetStaticPathsResult = await getAlbumStaticPaths();
+  return response.paths;
+}
+
+const album: Album = Astro.props as Album;
+
+if (!album) {
+  return new Response(null, {
+    status: 404,
+    statusText: "Not found",
+  });
+}
+
+const scoreIcon = (
+  await import(
+    `../../../assets/images/score/${getScoreImageFilename(album.score)}.gif`
+  )
+).default;
+---
+
+<Layout>
+  <div class="container">
+    <Box title="Discos">
+      <h1 class="text-3xl uppercase font-bold">{album.title}</h1>
+      <h2 class="text-xl uppercase font-bold">
+        {album.artist} ({album.year})
+      </h2>
+      <div class="flex items-center">
+        <p class="text-sm font-bold">{album.score}</p>
+        {
+          !!scoreIcon && (
+            <img
+              class="h-4 ml-3"
+              src={scoreIcon.src}
+              alt={album.score.toString()}
+            />
+          )
+        }
+      </div>
+      <div class="mt-3">
+        <img
+          class="md:size-16 lg:size-56 mr-3 mb-3 md:float-left"
+          src={album.featuredMedia.sizes.thumbnail?.url || ""}
+          alt={album.featuredMedia.altText}
+        />
+        <p class="text-gray-400">
+          {album.author}
+          {formatDate(album.date)}
+        </p>
+        <div class="content" set:html={album.content} />
+      </div>
+    </Box>
+  </div>
+</Layout>
+
+<style>
+  .content {
+    margin-block-end: 20px;
+
+    span {
+      display: inline;
+    }
+
+    p {
+      margin-block-end: 20px;
+    }
+
+    figure,
+    iframe {
+      margin: auto;
+      max-width: 100%;
+    }
+  }
+</style>
