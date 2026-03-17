@@ -1,34 +1,40 @@
-# Astro Starter Kit: Basics
+# BIGinner
 
-```sh
-npm create astro@latest -- --template basics
-```
+BIGinner is an independent music web magazine featuring news, album reviews, concerts, and interviews with local and international bands.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+http://biginner.es/
 
 ## 🚀 Project Structure
 
-Inside of your Astro project, you'll see the following folders and files:
+Inside of the project, you'll see the following folders and files:
 
 ```text
 /
 ├── public/
 │   └── favicon.svg
+│   └── fonts
+│   └── images
 ├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
+│   └── album/
+│   └── assets/
+│   └── concert/
+│   └── interview/
+│   └── media/
+│   └── video/
+│   └── layouts/
+│   └── new/
+│   └── mocks/
+│   └── post/
+│   └── styles/
+│   └── utils/
 │   └── pages/
-│       └── index.astro
+│       └── conciertos
+│       └── discos
+│       └── entrevistas
+│       └── noticias
+│       └── tv
 └── package.json
 ```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
 
 ## 🧞 Commands
 
@@ -43,6 +49,68 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
+## Tech stack
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+### Backend
+
+- **Wordpress API**
+
+### Frontend
+
+- **Typescript**
+- **Astro**
+- **Svelte**
+- **CSS**
+- **Tailwind**
+- **MSW**
+
+## Domains
+
+### Post
+
+- **id**: number
+- **date**: Date
+- **slug**: string
+- **status**: string
+- **link**: string
+- **title**: string
+- **content**: string
+- **excerpt**: string
+- **author**: string
+- **featuredMedia**: Media
+- **commentStatus**: string
+- **categories**: number[]
+- **tags**: number[]
+
+### Album (extend Post)
+
+- **score**: number
+- **year**: string
+- **artist**: string
+
+### Media
+
+- **id**: number
+- **title**: string
+- **slug**: string
+- **altText**: string
+- **sizes**: MediaSizes -> medium, large, thumbnail, mediumLarge, full
+
+### New (extend Post)
+
+- **subtitle**: string
+
+### Concert (extend Post)
+
+- **artist**: string
+- **location**: string
+
+### Interview (extend Post)
+
+- **artist**: string
+- **album**: string
+
+### Video (extend Post)
+
+- **artist**: string
+- **song**: string

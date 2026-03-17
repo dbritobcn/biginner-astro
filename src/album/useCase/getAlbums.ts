@@ -1,4 +1,4 @@
-import { PostHttpService } from "src/post/infrastructure/post.HttpService";
+import { PostHttpService } from "src/post/infrastructure/post.httpService";
 import { AlbumHttpService } from "../infrastructure/album.httpService";
 import type { GetAlbumsProps } from "../infrastructure/album.service";
 import type { AlbumResponse } from "../types";

@@ -1,6 +1,8 @@
-import { HttpService } from "src/core/infrastructure/httpService";
 import type { PostService } from "./post.service";
 import type { GetPostsProps } from "../types";
+import { axiosHttpService } from "src/core/infrastructure/axiosHttpService";
+
+const httpService = new axiosHttpService();
 
 export class PostHttpService implements PostService {
   async getPostsByCategory<T>(props: GetPostsProps): Promise<T> {
@@ -15,7 +17,7 @@ export class PostHttpService implements PostService {
 
     url.search = queryParams.toString();
 
-    return HttpService.get<T>(url.href);
+    return httpService.get<T>(url.href);
   }
 
   async getPostBySlug<T>(slug: string, baseUrl: string): Promise<T> {
@@ -28,6 +30,6 @@ export class PostHttpService implements PostService {
 
     url.search = queryParams.toString();
 
-    return await HttpService.get<T>(url.href);
+    return await httpService.get<T>(url.href);
   }
 }
