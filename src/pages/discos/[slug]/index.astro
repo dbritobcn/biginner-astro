@@ -11,11 +11,6 @@ import { getScoreImageFilename } from "src/utils/getScoreImage";
 
 export async function getStaticPaths() {
   const response: GetStaticPathsResult = await getAlbumStaticPaths();
-  // console.log(
-  //   `%c*** getStaticPaths ***`,
-  //   "background: green; color: white; padding: 12px 24px",
-  //   response.paths,
-  // );
   return response.paths;
 }
 
