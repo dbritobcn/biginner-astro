@@ -4,11 +4,24 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Verdana", "sans-serif"],
-        display: ["Verdana", "sans-serif"],
+        sans: ["Inter", "sans-serif"],
+        tight: ["Inter Tight", "sans-serif"],
+        display: ["Archivo Black", "sans-serif"],
+      },
+      colors: {
+        brand: {
+          primary: "#000000",
+          secondary: "#888888",
+          divider: "#E0E0E0",
+          placeholder: "#C4C4C4",
+        },
       },
       container: {
         center: true,
+        padding: {
+          DEFAULT: "1rem",
+          lg: "2.5rem",
+        },
         screens: {
           sm: "100%",
           md: "100%",
