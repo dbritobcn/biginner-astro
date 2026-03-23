@@ -6,57 +6,59 @@ import tvIcon from "@assets/images/tabs/video.png";
 import interviewsIcon from "@assets/images/tabs/mic.png";
 ---
 
-<div class="container text-center border-t-4 border-black">
-  <ul class="flex mx-auto pt-3 pb-8 justify-around md:justify-center">
-    <li>
-      <a href="/" data-astro-prefetch>
-        <span class="hidden md:block m-3">Conciertos</span>
-        <img
-          class="size-6 block mx-4 md:hidden"
-          src={concertsIcon.src}
-          alt="Conciertos"
-        />
-      </a>
-    </li>
-    <li>
-      <a href="/discos" data-astro-prefetch>
-        <span class="hidden md:block m-3">Discos</span>
-        <img
-          class="size-6 block mx-4 md:hidden"
-          src={albumsIcon.src}
-          alt="Discos"
-        />
-      </a>
-    </li>
-    <li>
-      <a href="/" data-astro-prefetch>
-        <span class="hidden md:block m-3">Noticias</span>
-        <img
-          class="size-6 block mx-4 md:hidden"
-          src={newsIcon.src}
-          alt="Noticias"
-        />
-      </a>
-    </li>
-    <li>
-      <a href="/" data-astro-prefetch>
-        <span class="hidden md:block m-3">Entrevistas</span>
-        <img
-          class="size-6 block mx-4 md:hidden"
-          src={interviewsIcon.src}
-          alt="Entrevistas"
-        />
-      </a>
-    </li>
-    <li>
-      <a href="/" data-astro-prefetch>
-        <span class="hidden md:block m-3">BiginnerTV</span>
-        <img
-          class="size-6 block mx-4 md:hidden"
-          src={tvIcon.src}
-          alt="BiginnerTV"
-        />
-      </a>
-    </li>
-  </ul>
-</div>
+<footer class="container text-center border-t-4 border-black">
+  <nav aria-label="Navegación de secciones">
+    <ul class="flex mx-auto pt-3 pb-8 justify-around md:justify-center">
+      <li>
+        <a href="/conciertos" class="p-3 inline-flex" data-astro-prefetch>
+          <span class="hidden md:block font-tight uppercase text-sm tracking-wide">Conciertos</span>
+          <img
+            class="size-6 md:hidden"
+            src={concertsIcon.src}
+            alt="Conciertos"
+          />
+        </a>
+      </li>
+      <li>
+        <a href="/discos" class="p-3 inline-flex" data-astro-prefetch>
+          <span class="hidden md:block font-tight uppercase text-sm tracking-wide">Discos</span>
+          <img
+            class="size-6 md:hidden"
+            src={albumsIcon.src}
+            alt="Discos"
+          />
+        </a>
+      </li>
+      <li>
+        <a href="/noticias" class="p-3 inline-flex" data-astro-prefetch>
+          <span class="hidden md:block font-tight uppercase text-sm tracking-wide">Noticias</span>
+          <img
+            class="size-6 md:hidden"
+            src={newsIcon.src}
+            alt="Noticias"
+          />
+        </a>
+      </li>
+      <li>
+        <a href="/entrevistas" class="p-3 inline-flex" data-astro-prefetch>
+          <span class="hidden md:block font-tight uppercase text-sm tracking-wide">Entrevistas</span>
+          <img
+            class="size-6 md:hidden"
+            src={interviewsIcon.src}
+            alt="Entrevistas"
+          />
+        </a>
+      </li>
+      <li>
+        <a href="/tv" class="p-3 inline-flex" data-astro-prefetch>
+          <span class="hidden md:block font-tight uppercase text-sm tracking-wide">BiginnerTV</span>
+          <img
+            class="size-6 md:hidden"
+            src={tvIcon.src}
+            alt="BiginnerTV"
+          />
+        </a>
+      </li>
+    </ul>
+  </nav>
+</footer>

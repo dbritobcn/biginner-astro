@@ -1,43 +1,46 @@
 ---
 import logo from "@assets/images/logo.gif";
+
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { label: "Noticias", href: "/noticias" },
+  { label: "Discos", href: "/discos" },
+  { label: "Conciertos", href: "/conciertos" },
+  { label: "Entrevistas", href: "/entrevistas" },
+  { label: "Tv", href: "/tv" },
+];
 ---
 
-<div
-  class="header container w-11/12 md:w-full flex items-center justify-center md:justify-between relative
+<header
+  class="container w-11/12 md:w-full flex items-center justify-center md:justify-between relative
     before:absolute before:content-[''] before:-z-10 before:w-full before:block before:bg-black before:bottom-0 before:h-0.5
     md:before:bottom-1 md:before:h-1"
 >
   <a href="/" class="w-40 md:w-72">
-    <img src={logo.src} class="logo object-fill" alt="Biginner" />
+    <img src={logo.src} class="object-fill" alt="Biginner" />
   </a>
   <div class="hidden md:block">
-    <nav>
+    <nav aria-label="Navegación principal">
       <ul class="flex mt-10 mr-3">
-        <li>
-          <a class="ml-5 uppercase font-sans" href="/" data-astro-prefetch
-            >Noticias</a
-          >
-        </li>
-        <li>
-          <a class="ml-5 uppercase font-sans" href="/discos" data-astro-prefetch
-            >Discos</a
-          >
-        </li>
-        <li>
-          <a class="ml-5 uppercase font-sans" href="/" data-astro-prefetch
-            >Conciertos</a
-          >
-        </li>
-        <li>
-          <a class="ml-5 uppercase font-sans" href="/" data-astro-prefetch
-            >Entrevistas</a
-          >
-        </li>
-        <li>
-          <a class="ml-5 uppercase font-sans" href="/" data-astro-prefetch>Tv</a
-          >
-        </li>
+        {
+          navItems.map(({ label, href }) => {
+            const isActive = currentPath.startsWith(href);
+            return (
+              <li>
+                <a
+                  class={`ml-5 uppercase font-tight text-sm tracking-wide ${isActive ? "underline" : ""}`}
+                  href={href}
+                  data-astro-prefetch
+                  aria-current={isActive ? "page" : undefined}
+                >
+                  {label}
+                </a>
+              </li>
+            );
+          })
+        }
       </ul>
     </nav>
   </div>
-</div>
+</header>
