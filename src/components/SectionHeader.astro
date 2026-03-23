@@ -1,0 +1,15 @@
+---
+interface Props {
+  title: string;
+  as?: "h1" | "h2" | "p";
+  href?: string;
+}
+
+const { title, as: Tag = "h1", href } = Astro.props;
+---
+
+<Tag
+  class="font-tight text-xs uppercase tracking-widest text-brand-secondary pb-3 border-b border-brand-divider"
+>
+  {href ? <a href={href}>{title}</a> : title}
+</Tag>

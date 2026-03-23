@@ -1,6 +1,6 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import Box from "@components/Box.astro";
+import SectionHeader from "@components/SectionHeader.astro";
 import type { Album } from "src/album/domain/album";
 import { formatDate } from "src/utils/formatDate";
 import {
@@ -30,38 +30,39 @@ const scoreIcon = (
 ).default;
 ---
 
-<Layout>
+<Layout title={`${album.artist} — ${album.title}`}>
   <div class="container">
-    <Box title="Discos">
-      <h1 class="text-3xl uppercase font-bold">{album.title}</h1>
+    <section>
+      <SectionHeader title="Discos" as="p" href="/discos" />
+      <h1 class="text-3xl uppercase font-bold mt-4">{album.title}</h1>
       <h2 class="text-xl uppercase font-bold">
         {album.artist} ({album.year})
       </h2>
-      <div class="flex items-center">
+      <div class="flex items-center mt-1">
         <p class="text-sm font-bold">{album.score}</p>
         {
           !!scoreIcon && (
             <img
               class="h-4 ml-3"
               src={scoreIcon.src}
-              alt={album.score.toString()}
+              alt={`Puntuación: ${album.score} de 10`}
             />
           )
         }
       </div>
-      <div class="mt-3">
+      <div class="mt-4">
         <img
-          class="md:size-16 lg:size-56 mr-3 mb-3 md:float-left"
+          class="w-full md:size-16 lg:size-56 mr-3 mb-3 md:float-left"
           src={album.featuredMedia.sizes.thumbnail?.url || ""}
           alt={album.featuredMedia.altText}
         />
-        <p class="text-gray-400">
+        <p class="font-tight text-xs text-brand-secondary mb-3">
           {album.author}
           {formatDate(album.date)}
         </p>
         <div class="post-content" set:html={album.content} />
       </div>
-    </Box>
+    </section>
   </div>
 </Layout>
 
