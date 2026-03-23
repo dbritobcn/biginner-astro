@@ -10,20 +10,14 @@ export interface GetStaticPathsResult {
 
 export const getAlbumStaticPaths = async (): Promise<GetStaticPathsResult> => {
   try {
-    let page = 1;
     const postService = new PostHttpService();
     const albumService = new AlbumHttpService(postService);
-    const albums: AlbumResponse[] = await albumService.getAlbums({
-      page,
-      limit: 10,
-    });
+    const albums: AlbumResponse[] = await albumService.getAllAlbums();
 
-    const paths = albums.map((album: AlbumResponse) => {
-      return {
-        params: { slug: album.slug },
-        props: Album.create(album),
-      };
-    });
+    const paths = albums.map((album: AlbumResponse) => ({
+      params: { slug: album.slug },
+      props: Album.create(album),
+    }));
 
     return { paths, fallback: false };
   } catch (error) {

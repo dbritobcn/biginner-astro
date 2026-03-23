@@ -14,4 +14,12 @@ export class AlbumHttpService implements AlbumService {
       url: POSTS_URL,
     });
   }
+
+  async getAllAlbums(): Promise<AlbumResponse[]> {
+    return this.postService.getAllPostsByCategory<AlbumResponse[]>({
+      category: ALBUM_CATEGORY,
+      limit: ALBUM_DEFAULT_LIMIT.toString(),
+      url: POSTS_URL,
+    });
+  }
 }
